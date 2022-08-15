@@ -1,0 +1,40 @@
+# import libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import requests
+
+# set the EveryPixel credentials
+client_id = 'YOUR CLIENT ID'
+client_secret = 'YOUR CLIENT SECRET'
+
+# set the image url
+image_url = 'THE IMAGE URL'
+# set the parameters
+params = {'url': image_url, 'num_keywords': 10}
+# request EveryPixel image check
+keywords = requests.get('https://api.everypixel.com/v1/keywords', params=params, auth=(client_id, client_secret)).json()
+# get the results
+keywords
+
+
+# Stock photo scoring
+# set the image url
+image_url = 'THE IMAGE URL'
+# set the paramenters
+params = {'url': image_url}
+# request EveryPixel quality check
+quality = requests.get('https://api.everypixel.com/v1/quality', params=params, auth=(client_id, client_secret)).json()
+# get the results
+quality
+
+# User-Generated Photo Scoring from Instagram
+# set the image url
+image_url = 'YOUR IMAGE URL'
+# set the parameters
+params = {'url': image_url}
+# request EveryPixel user-generated photo scoring from Instagram
+quality_insta = requests.get('https://api.everypixel.com/v1/quality_ugc', params=params, auth=(client_id, client_secret)).json()
+# get the results
+quality_insta
